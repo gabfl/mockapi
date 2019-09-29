@@ -4,7 +4,7 @@ from datetime import datetime
 from .models import db, RouteModel
 
 
-def new(type_, body, expiration_date):
+def new(type_=None, body='', expiration_date=None):
     """ Create a new route """
 
     # Create route

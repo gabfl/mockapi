@@ -76,6 +76,9 @@ def detect_payload_type(input_):
 def is_json(input_):
     """ Check if a string is Json """
 
+    if input_ is None:
+        return False
+
     try:
         json.loads(input_)
     except ValueError:
@@ -86,6 +89,9 @@ def is_json(input_):
 
 def is_xml(input_):
     """ Check if a string is XML """
+
+    if input_ is None:
+        return False
 
     try:
         xml.dom.minidom.parseString(input_)

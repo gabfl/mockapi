@@ -1,0 +1,7 @@
+[run]
+source=mockapi
+
+[report]
+omit =
+  src/unittest/*
+  venv/*

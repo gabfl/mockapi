@@ -1,0 +1,17 @@
+{% include "header.html" %}
+
+<div style="margin-top: 30px;">
+    <div class="card">
+        <div class="card-header">
+            Your new Mock API
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                Your new mock API has been created and is ready to be used. It is available at <input class="form-control" type="text" value="{{ host_url }}api/{{ api_path }}" readonly>
+            </p>
+            <a href="{{ host_url }}api/{{ api_path }}" class="btn btn-primary" target="_blank">Open</a>
+        </div>
+    </div>
+</div>
+
+{% include "footer.html" %}

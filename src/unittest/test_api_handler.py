@@ -1,5 +1,6 @@
 from .base import BaseTest
 from .. import api_handler
+from ..models import RouteModel
 
 
 class Test(BaseTest):
@@ -31,6 +32,8 @@ class Test(BaseTest):
         assert api_handler.detect_payload_type(self.multiline_xml) == 'xml'
         assert api_handler.detect_payload_type(self.inline_xml) == 'xml'
         assert api_handler.detect_payload_type(self.inline_string) == 'text'
+        assert api_handler.detect_payload_type(self.inline_string) == 'text'
+        assert api_handler.detect_payload_type(None) == 'text'
 
     def test_is_json(self):
 
@@ -39,6 +42,7 @@ class Test(BaseTest):
         assert api_handler.is_json(self.multiline_xml) is False
         assert api_handler.is_json(self.inline_xml) is False
         assert api_handler.is_json(self.inline_string) is False
+        assert api_handler.is_json(None) is False
 
     def test_is_xml(self):
 
@@ -47,3 +51,4 @@ class Test(BaseTest):
         assert api_handler.is_xml(self.multiline_xml) is True
         assert api_handler.is_xml(self.inline_xml) is True
         assert api_handler.is_xml(self.inline_string) is False
+        assert api_handler.is_xml(None) is False

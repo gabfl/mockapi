@@ -6,6 +6,14 @@
 
 Simple Python tool to mock API responses
 
+## What is MockApi?
+
+MockAPI is a Python program allowing you to start a Flask webserver to create a mock API in matter of seconds.
+
+You can provide any payload you would like (Json, XML or text/html) and MockAPI will create a unique URL that will return the given payload.
+
+![Demo](img/demo.gif?raw=true)
+
 ## Installation
 
 ```bash

@@ -1,8 +1,8 @@
 # mockapi
 
-[![Build Status](https://travis-ci.org/gabfl/mockapi.svg?branch=master)](https://travis-ci.org/gabfl/mockapi)
-[![codecov](https://codecov.io/gh/gabfl/mockapi/branch/master/graph/badge.svg)](https://codecov.io/gh/gabfl/mockapi)
-[![MIT licensed](https://img.shields.io/badge/license-MIT-green.svg)](https://raw.githubusercontent.com/gabfl/mockapi/master/LICENSE)
+[![Build Status](https://travis-ci.org/gabfl/mockapi.svg?branch=main)](https://travis-ci.org/gabfl/mockapi)
+[![codecov](https://codecov.io/gh/gabfl/mockapi/branch/main/graph/badge.svg)](https://codecov.io/gh/gabfl/mockapi)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-green.svg)](https://raw.githubusercontent.com/gabfl/mockapi/main/LICENSE)
 
 Simple Python tool to mock API responses
 

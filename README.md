@@ -1,6 +1,6 @@
 # mockapi
 
-[![Build Status](https://travis-ci.org/gabfl/mockapi.svg?branch=main)](https://travis-ci.org/gabfl/mockapi)
+[![Build Status](https://github.com/gabfl/mockapi/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/gabfl/mockapi/actions)
 [![codecov](https://codecov.io/gh/gabfl/mockapi/branch/main/graph/badge.svg)](https://codecov.io/gh/gabfl/mockapi)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-green.svg)](https://raw.githubusercontent.com/gabfl/mockapi/main/LICENSE)
 

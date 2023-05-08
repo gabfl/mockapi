@@ -2,7 +2,8 @@ from datetime import datetime
 
 from flask import Flask
 from flask import current_app as app
-from flask_sqlalchemy import SQLAlchemy, sqlalchemy
+from flask_sqlalchemy import SQLAlchemy
+import sqlalchemy
 
 from .bootstrap import get_or_create_app
 
@@ -16,13 +17,14 @@ db = SQLAlchemy(app)
 def db_auto_create():
     """ Automatically create SQLite db if it does not exists """
 
-    try:
-        RouteModel.query.get(1)
+    with app.app_context():
+        try:
+            RouteModel.query.get(1)
 
-        # Database already exists
-        return False
-    except sqlalchemy.exc.OperationalError:
-        db.create_all()
+            # Database already exists
+            return False
+        except sqlalchemy.exc.OperationalError:
+            db.create_all()
 
     # Database has been created
     return True

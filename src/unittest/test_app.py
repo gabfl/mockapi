@@ -3,9 +3,13 @@ import json
 from .base import BaseTest
 from .. import api_handler, routes_handler
 from ..models import RouteModel
+from ..bootstrap import get_or_create_app
 
 
 class Test(BaseTest):
+
+    def setUp(self):
+        self.app = get_or_create_app()
 
     def test_hp(self):
         rv = self.client.get('/')
@@ -42,11 +46,12 @@ class Test(BaseTest):
         body = '{"success": true}'
 
         # Generate a new route
-        route = routes_handler.new(
-            type_='json',
-            body=body
-        )
-        path = route.path
+        with self.app.app_context():
+            route = routes_handler.new(
+                type_='json',
+                body=body
+            )
+            path = route.path
 
         rv = self.client.get('/api/' + path)
         assert rv.status_code == 200
@@ -57,11 +62,12 @@ class Test(BaseTest):
         body = '<slideshow><title>Demo slideshow</title></slideshow>'
 
         # Generate a new route
-        route = routes_handler.new(
-            type_='xml',
-            body=body
-        )
-        path = route.path
+        with self.app.app_context():
+            route = routes_handler.new(
+                type_='xml',
+                body=body
+            )
+            path = route.path
 
         rv = self.client.get('/api/' + path)
         assert rv.status_code == 200
@@ -72,11 +78,12 @@ class Test(BaseTest):
         body = 'Hello world'
 
         # Generate a new route
-        route = routes_handler.new(
-            type_='text',
-            body=body
-        )
-        path = route.path
+        with self.app.app_context():
+            route = routes_handler.new(
+                type_='text',
+                body=body
+            )
+            path = route.path
 
         rv = self.client.get('/api/' + path)
         assert rv.status_code == 200
@@ -85,11 +92,12 @@ class Test(BaseTest):
 
     def test_api_serve_no_body(self):
         # Generate a new route
-        route = routes_handler.new(
-            type_=None,
-            body=None
-        )
-        path = route.path
+        with self.app.app_context():
+            route = routes_handler.new(
+                type_=None,
+                body=None
+            )
+            path = route.path
 
         rv = self.client.get('/api/' + path)
         assert rv.status_code == 200

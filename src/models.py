@@ -1,3 +1,4 @@
+import os
 from datetime import datetime
 
 from flask import Flask
@@ -9,7 +10,8 @@ from .bootstrap import get_or_create_app
 
 app = get_or_create_app()
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data/mockapi.db'
+file_path = os.path.abspath(os.getcwd()) + "/src/data/mockapi.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////' + file_path
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -19,7 +21,7 @@ def db_auto_create():
 
     with app.app_context():
         try:
-            RouteModel.query.get(1)
+            db.session.get(RouteModel, 1)
 
             # Database already exists
             return False
